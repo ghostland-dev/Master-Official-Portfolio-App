@@ -12,15 +12,7 @@
             <div class="portfolio-details-slider swiper">
               <div class="swiper-wrapper align-items-center">
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/github-project-1.jpg" alt="" />
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/github-project-2.jpg" alt="" />
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/github-project-3.jpg" alt="" />
+                  <img src="{{ assetPath }}{{ details.data.screen }}" alt="" />
                 </div>
               </div>
               <div class="swiper-pagination"></div>
@@ -31,20 +23,20 @@
             <h3>Informations sur le projet</h3>
             <ul>
               <li>
-                <strong>Catégorie</strong>: Développement Web
+                <strong>Catégorie</strong>: {{ details.data.categorie }}
               </li>
               <li>
-                <strong>Auteur</strong>: Votre Nom
+                <strong>Auteur</strong>: MOUYAHADA ISMAIL
               </li>
               <li>
-                <strong>Date du projet</strong>: 01 Mars, 2022
+                <strong>Date du projet</strong>: {{ details.data.date_debut }}
               </li>
               <li>
-                <strong>URL du projet</strong>: <a href="#">www.github.com/votre-nom/nom-du-projet</a>
+                <strong>URL du projet</strong>: <a href="{{ details.data.link }}">{{ details.data.link }}</a>
               </li>
             </ul>
 
-            <p>Description détaillée de votre projet GitHub. Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.</p>
+            <p>{{ details.data.details }}</p>
           </div>
         </div>
       </div>

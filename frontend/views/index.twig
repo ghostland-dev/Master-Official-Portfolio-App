@@ -36,17 +36,9 @@
       <!-- .navbar -->
 
       <div class="social-links">
-        <a href="https://www.social.com/mouyahda-ismail" class="github"><i class="bi bi-github"></i></a>
-        <a href="https://www.social.com/mouyahda-ismail" class="behance"><i class="bi bi-behance"></i></a>
-        <a href="https://www.social.com/mouyahda-ismail" class="pinterest"><i class="bi bi-pinterest"></i></a>
-        <a href="https://www.social.com/mouyahda-ismail" class="tiktok"><i class="bi bi-tiktok"></i></a>
-        <a href="https://www.social.com/mouyahda-ismail" class="tiktok"><i class="bi bi-tiktok"></i></a>
-        <a href="https://www.social.com/mouyahda-ismail" class="youtube"><i class="bi bi-youtube"></i></a>
-        <a href="https://www.social.com/mouyahda-ismail" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="https://www.social.com/mouyahda-ismail" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.social.com/mouyahda-ismail" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.social.com/mouyahda-ismail" class="google-plus"><i class="bi bi-skype"></i></a>
-        <a href="https://www.social.com/mouyahda-ismail" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        {% for item in reseaux.data %}
+          <a href="{{ item.lien }}" class="{{ item.icon }}"><i class="bi bi-{{ item.icon }}"></i></a>
+        {% endfor %}
       </div>
     </div>
   </header>
@@ -67,43 +59,43 @@
         </div>
         <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
           <h3>Concepteur &amp; Développeur informatique</h3>
-          <p class="fst-italic">Vous cherchez quelqu'un pour transformer du café en code ? Ne cherchez pas plus loin ! En tant que concepteur et développeur informatique, je suis spécialisé dans l'art de traduire des idées en lignes de code, avec une dose de caféine et une pincée de magie. Prêt à créer des miracles numériques !</p>
+          <p class="fst-italic">{{ acceuil.data.description_inrtoduction }}</p>
           <div class="row">
             <div class="col-lg-6">
               <ul>
                 <li>
-                  <i class="bi bi-chevron-right"></i> <strong>Date de naissance:</strong> <span>06 Sept 1995</span>
+                  <i class="bi bi-chevron-right"></i> <strong>Date de naissance:</strong> <span>{{ acceuil.data.date_naissance }}</span>
                 </li>
                 <li>
-                  <i class="bi bi-chevron-right"></i> <strong>Site web:</strong> <span>www.ismail-mouyahada.com</span>
+                  <i class="bi bi-chevron-right"></i> <strong>Site web:</strong> <span>{{ acceuil.data.site_web }}</span>
                 </li>
                 <li>
-                  <i class="bi bi-chevron-right"></i> <strong>Mobile:</strong> <span>+33 7 84 07 50 61</span>
+                  <i class="bi bi-chevron-right"></i> <strong>Mobile:</strong> <span>{{ acceuil.data.mobile }}</span>
                 </li>
                 <li>
-                  <i class="bi bi-chevron-right"></i> <strong>Ville:</strong> <span>Saint-Etienne-Du-Rouvray, France</span>
+                  <i class="bi bi-chevron-right"></i> <strong>Ville:</strong> <span>{{ acceuil.data.ville }}</span>
                 </li>
               </ul>
             </div>
             <div class="col-lg-6">
               <ul>
                 <li>
-                  <i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>29 ans</span>
+                  <i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>{{ acceuil.data.age }} ans</span>
                 </li>
                 <li>
-                  <i class="bi bi-chevron-right"></i> <strong>Qualification:</strong> <span>Master</span>
+                  <i class="bi bi-chevron-right"></i> <strong>Qualification:</strong> <span>{{ acceuil.data.qualification }}</span>
                 </li>
                 <li>
-                  <i class="bi bi-chevron-right"></i> <strong>PhEmailone:</strong>
-                  <span>ismail.mouyahada@developer.net</span>
+                  <i class="bi bi-chevron-right"></i> <strong>Adresse E-mail:</strong>
+                  <span>{{ acceuil.data.email }}</span>
                 </li>
                 <li>
-                  <i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Indisponible Actuellement</span>
+                  <i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>{{ acceuil.data.disponibilite ? 'Indisponible Actuellement' : 'Disponible pour des messions' }}</span>
                 </li>
               </ul>
             </div>
           </div>
-          <p>Offrir ses compétences pour résoudre les défis de manière efficace et créative est ma priorité. Chaque projet est une opportunité d'innovation et d'accomplissement, où les idées prennent vie à travers le langage des codes. Mon engagement envers l'excellence se reflète dans chaque ligne écrite, visant à surpasser les attentes et à créer des solutions technologiques pertinentes.</p>
+          <p>{{ acceuil.data.description_profil }}</p>
         </div>
       </div>
     </div>
@@ -112,37 +104,15 @@
     <!-- ======= Counts ======= -->
     <div class="counts container">
       <div class="row">
-        <div class="col-lg-3 col-md-6">
-          <div class="count-box">
-            <i class="bi bi-emoji-smile"></i>
-            <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Client satisfaits</p>
+        {% for item in statistiques.data %}
+          <div class="col-lg-3 col-md-6">
+            <div class="count-box">
+              <i class="{{ item.icon }}"></i>
+              <span data-purecounter-start="0" data-purecounter-end="{{ item.valeur }}" data-purecounter-duration="1" class="purecounter"></span>
+              <p>{{ item.nom }}</p>
+            </div>
           </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
-          <div class="count-box">
-            <i class="bi bi-journal-richtext"></i>
-            <span data-purecounter-start="0" data-purecounter-end="75" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Projets open source</p>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-          <div class="count-box">
-            <i class="bi bi-headset"></i>
-            <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Heures de travaillées</p>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-          <div class="count-box">
-            <i class="bi bi-award"></i>
-            <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Trophées</p>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
     <!-- End Counts -->
@@ -154,93 +124,16 @@
       </div>
 
       <div class="row skills-content">
-        <div class="col-lg-6">
-          <div class="progress">
-            <span class="skill">HTML <i class="val">100%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        {% for item in languages_inforamtiques.data %}
+          <div class="col-lg-6">
+            <div class="progress">
+              <span class="skill"><i class="{{ item.icon }} colored"></i> {{ item.nom_language }} <i class="val">{{ item.percentage_maitrise }}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{ item.percentage_maitrise }}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
             </div>
           </div>
-
-          <div class="progress">
-            <span class="skill">CSS <i class="val">100%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">JavaScript <i class="val">100%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Ruby <i class="val">80%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">PHP <i class="val">95%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Dart <i class="val">75%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="progress">
-            <span class="skill">Golang <i class="val">85%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Java <i class="val">85%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">C# <i class="val">80%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">FreePascal <i class="val">95%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">TypeScript <i class="val">80%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Python <i class="val">90%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
     <!-- Fin des Compétences techniques -->
@@ -252,135 +145,16 @@
       </div>
 
       <div class="row skills-content">
-        <div class="col-lg-6">
-          <div class="progress">
-            <span class="skill">Expressjs <i class="val">100%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        {% for item in frameworks.data %}
+          <div class="col-lg-6">
+            <div class="progress">
+              <span class="skill"><i class="{{ item.icon }} colored"></i> {{ item.nom_framework }} <i class="val">{{ item.percentage_maitrise }}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{ item.percentage_maitrise }}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
             </div>
           </div>
-
-          <div class="progress">
-            <span class="skill">Svelte <i class="val">90%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Streamlit <i class="val">95%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">React <i class="val">85%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Vue.js <i class="val">85%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Angular <i class="val">75%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Next.js <i class="val">85%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Nuxt.js <i class="val">80%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Flutter <i class="val">70%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="progress">
-            <span class="skill">Laravel <i class="val">100%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Symfony <i class="val">95%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Flask <i class="val">80%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Django <i class="val">85%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">ASP.net <i class="val">80%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Ruby on Rails <i class="val">75%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">NestJS <i class="val">100%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">AdonisJS <i class="val">100%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Spring Boot <i class="val">80%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
     <!-- End Skills -->
@@ -392,78 +166,14 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-3 col-md-4">
-          <div class="icon-box">
-            <i class="ri-store-line" style="color: #ffbb2c;"></i>
-            <h3>Open Source</h3>
+        {% for item in centres_intrets.data %}
+          <div class="col-lg-3 col-md-4 my-4 mt-md-0">
+            <div class="icon-box">
+              <i class="{{ item.icon }}" style="color: #4ceb95;"></i>
+              <h3>{{ item.nom_intret }}</h3>
+            </div>
           </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
-            <h3>Apprentissage Continu</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-            <h3>Technologies Émergentes</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
-          <div class="icon-box">
-            <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-            <h3>Conception UX/UI</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-database-2-line" style="color: #47aeff;"></i>
-            <h3>Architecture Logicielle</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
-            <h3>Automatisation des Tâches</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-            <h3>Développement Personnel</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
-            <h3>Communauté Technologique</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-anchor-line" style="color: #b2904f;"></i>
-            <h3>Défis Techniques</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-disc-line" style="color: #b20969;"></i>
-            <h3>Résolution de Problèmes</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-base-station-line" style="color: #ff5828;"></i>
-            <h3>Projets Passionnants</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
-            <h3>Innovation Technologique</h3>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
     <!-- Fin des Centres d'Intérêts -->
@@ -476,32 +186,20 @@
 
       <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="testimonial-item">
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Hamidou Diakité: "Je suis extrêmement satisfait du travail de CDA. Sa capacité à comprendre mes besoins et à les traduire en solutions pratiques et innovantes est impressionnante. Son professionnalisme et son engagement en font un partenaire de confiance pour tous mes projets."
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-              <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="" />
-              <h3>Hamidou Diakité</h3>
-              <h4>Ceo &amp; Fondateur</h4>
+          {% for item in temoignages.data %}
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  {{ item.description }}
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="{{ assetPath }}{{ item.profil }}" class="testimonial-img" alt="{{ item.titre }}" />
+                <h3>{{ item.titre }}</h3>
+                <h4>{{ item.titulaire }}</h4>
+              </div>
             </div>
-          </div>
-          <!-- End testimonial item -->
-
-          <div class="swiper-slide">
-            <div class="testimonial-item">
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Beranger Benoit: "Ismail est un professionnel exceptionnel. Son expertise dans le domaine du développement et du design est remarquable. Il a su répondre à mes attentes avec précision et efficacité, et son approche collaborative a rendu notre collaboration très enrichissante."
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-              <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="" />
-              <h3>Beranger Benoit</h3>
-              <h4>Responsable de formation</h4>
-            </div>
-          </div>
+          {% endfor %}
           <!-- End testimonial item -->
         </div>
         <div class="swiper-pagination"></div>
@@ -525,85 +223,36 @@
         <div class="col-lg-6">
           <h3 class="resume-title">Résumé</h3>
           <div class="resume-item pb-0">
-            <h4>Master en alternance</h4>
-            <p>
-              <em>Le programme de Master en alternance offre une opportunité unique d'acquérir une expérience pratique tout en poursuivant ses études. Ce programme met l'accent sur le développement des compétences professionnelles et techniques nécessaires pour exceller dans le domaine.</em>
-            </p>
-            <div>
-              <ul>
-                <li>1, avenue du Général de Gaulle – 92074 Paris La Défense</li>
-                <li>(+33) 01 44 45 92 00</li>
-                <li>contact@cesi.fr</li>
-              </ul>
-            </div>
+            <h4>{{ resumee.data.titulaire }}</h4>
+            <div>{{ resumee.data.description }}</div>
           </div>
-
           <h3 class="resume-title">Études</h3>
-          <div class="resume-item">
-            <h4>Mastère professionnel manager en architecture et applications logicielles des SI en alternance</h4>
-            <h5>2024 - 2026</h5>
-            <p>
-              <em>Le Mastère professionnel en architecture et applications logicielles des systèmes d'information offre une formation approfondie dans la conception, le développement et la gestion des systèmes d'information complexes. Il met l'accent sur les aspects architecturaux et logiciels pour répondre aux besoins des entreprises modernes.</em>
-            </p>
-          </div>
-          <div class="resume-item">
-            <h4>Bachelor concepteur développeur applications alternance</h4>
-            <h5>2022 - 2023</h5>
-            <p>
-              <em>Le programme de Bachelor en alternance en conception et développement d'applications forme des professionnels capables de concevoir, développer et déployer des applications logicielles de haute qualité. Les étudiants acquièrent une solide base théorique ainsi que des compétences pratiques grâce à des projets réels en entreprise.</em>
-            </p>
-          </div>
-          <div class="resume-item">
-            <h4>Diplôme de développeur informatique</h4>
-            <h5>2020 - 2022</h5>
-            <p>
-              <em>Le diplôme de développeur informatique offre une formation complète dans les principaux langages de programmation et technologies utilisées dans le développement logiciel. Les étudiants acquièrent des compétences pratiques pour concevoir, développer et déployer des applications informatiques.</em>
-            </p>
-          </div>
+          {% for item in etudes.data %}
+            <div class="resume-item">
+              <h4>{{ item.titre }}</h4>
+              <h5>{{ item.peroide }}</h5>
+              <p>
+                <em>{{ item.site }}</em>
+              </p>
+              <p>
+                <em>{{ item.description }}</em>
+              </p>
+            </div>
+          {% endfor %}
         </div>
         <div class="col-lg-6">
           <h3 class="resume-title">Expérience professionnelle</h3>
-          <div class="resume-item">
-            <h4>Responsable de service informatique</h4>
-            <h5>2024 - Présent</h5>
-            <p>
-              <em>Access Energies, Petit-Couronne, FR</em>
-            </p>
-            <ul>
-              <li>Conception, développement et mise en œuvre de solutions informatiques, y compris des systèmes logiciels et des infrastructures.</li>
-              <li>Délégation des tâches à une équipe de 7 membres et conseil sur tous les aspects des projets informatiques.</li>
-              <li>Supervision de l'évaluation de toutes les solutions informatiques pour assurer leur qualité et leur précision.</li>
-              <li>Gestion efficace des budgets de projet informatique, allant de 2000 $ à 25 000 $.</li>
-            </ul>
-          </div>
 
-          <div class="resume-item">
-            <h4>Concepteur et développeur applicatif</h4>
-            <h5>2022 - 2024</h5>
-            <p>
-              <em>Access Energies, Petit-Couronne, FR</em>
-            </p>
-            <ul>
-              <li>Conception et développement d'applications logicielles, incluant des applications web et des outils internes.</li>
-              <li>Gestion de jusqu'à 5 projets ou tâches simultanément, tout en respectant les délais et les exigences.</li>
-              <li>Collaboration avec les clients pour comprendre leurs besoins et recommander les solutions logicielles les plus adaptées.</li>
-              <li>Préparation de présentations et de propositions de conception pour les clients et les décideurs.</li>
-            </ul>
-          </div>
-
-          <div class="resume-item">
-            <h4>Développeur informatique</h4>
-            <h5>2019 - 2022</h5>
-            <p>
-              <em>Access Energies, Petit-Couronne, FR</em>
-            </p>
-            <ul>
-              <li>Développement de plusieurs programmes logiciels, y compris des applications web et des outils internes.</li>
-              <li>Gestion de jusqu'à 5 projets ou tâches simultanément sous pression.</li>
-              <li>Consultation auprès des clients pour recommander les solutions logicielles les plus appropriées.</li>
-              <li>Création de plus de 4 présentations et propositions de conception par mois pour les clients et les responsables de compte.</li>
-            </ul>
-          </div>
+          {% for item in experiences_professionnels.data %}
+            <div class="resume-item">
+              <h4>{{ item.titulaire }}</h4>
+              <h5>{{ item.peroide }}</h5>
+              <p>
+                <em>{{ item.site }}</em>
+              </p>
+              <div>{{ item.description }}</div>
+            </div>
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -620,115 +269,17 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="icon-box">
-            <div class="icon">
-              <i class="bx bxl-dribbble"></i>
+        {% for item in services.data %}
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch my-4 mt-md-0">
+            <div class="icon-box">
+              <div class="icon">
+                <i class="{{ item.icon }}"></i>
+              </div>
+              <h4><a href="">{{ item.titre }}</a></h4>
+              <p>{{ item.resumee }}</p>
             </div>
-            <h4><a href="">Développement Web</a></h4>
-            <p>Conception et création de sites web sur mesure pour répondre à vos besoins spécifiques.</p>
           </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-          <div class="icon-box">
-            <div class="icon">
-              <i class="bx bx-mobile"></i>
-            </div>
-            <h4><a href="">Développement Mobile</a></h4>
-            <p>Création d'applications mobiles optimisées pour les plateformes iOS et Android.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-          <div class="icon-box">
-            <div class="icon">
-              <i class="bx bx-desktop"></i>
-            </div>
-            <h4><a href="">Développement Desktop</a></h4>
-            <p>Développement d'applications de bureau pour Windows, MacOS et Linux.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon">
-              <i class="bx bx-file"></i>
-            </div>
-            <h4><a href="">Analyse des Données</a></h4>
-            <p>Extraction, transformation et analyse des données pour obtenir des informations exploitables.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon">
-              <i class="bx bx-code"></i>
-            </div>
-            <h4><a href="">Web Services API</a></h4>
-            <p>Création et intégration d'API web pour permettre la communication entre différentes applications et services.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon">
-              <i class="bx bx-diagram"></i>
-            </div>
-            <h4><a href="">Conception UML et MCD</a></h4>
-            <p>Modélisation et conception de structures de données et de processus avec UML (Unified Modeling Language) et MCD (Modèle Conceptuel de Données).</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon">
-              <i class="bx bx-tachometer"></i>
-            </div>
-            <h4><a href="">Optimisation des Performances</a></h4>
-            <p>Optimisation des performances des applications et des infrastructures pour une expérience utilisateur optimale.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon">
-              <i class="bx bx-world"></i>
-            </div>
-            <h4><a href="">Sécurité des Données</a></h4>
-            <p>Mise en place de mesures de sécurité robustes pour protéger vos données sensibles.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon">
-              <i class="bx bx-slideshow"></i>
-            </div>
-            <h4><a href="">Intégration Système</a></h4>
-            <p>Intégration de systèmes pour assurer une interaction fluide entre les différentes plateformes et applications.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon">
-              <i class="bx bx-arch"></i>
-            </div>
-            <h4><a href="">Support Technique</a></h4>
-            <p>Assistance technique personnalisée pour résoudre les problèmes et garantir le bon fonctionnement de vos systèmes.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon">
-              <i class="bx bx-package"></i>
-            </div>
-            <h4><a href="">Gestion et Automatisation avec Docker et CI/CD</a></h4>
-            <p>Utilisation de Docker pour la gestion des conteneurs et CI/CD (Continuous Integration/Continuous Deployment) pour automatiser le processus de développement, de test et de déploiement des applications.</p>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -756,35 +307,21 @@
       </div>
 
       <div class="row portfolio-container">
-        <div class="col-lg-4 col-md-6 portfolio-item filter-mobile">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="" />
-            <div class="portfolio-info">
-              <h4>Mobile App 1</h4>
-              <p>Mobile</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Mobile App 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+        {% for item in projects.data %}
+          <div class="col-lg-4 col-md-6 portfolio-item filter-{{ item.type }}">
+            <div class="portfolio-wrap">
+              <img src="{{ assetPath }}{{ item.screen }}" class="img-fluid" alt="{{ item.nom_projet }}" />
+              <div class="portfolio-info">
+                <h4>{{ item.titre_projet }}</h4>
+                <p>{{ item.description }}</p>
+                <div class="portfolio-links">
+                  <a href="{{ assetPath }}{{ item.screen }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ item.nom_projet }}"><i class="bx bx-plus"></i></a>
+                  <a href="/details/projet/{{ item.id }}" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="" />
-            <div class="portfolio-info">
-              <h4>Web Project 1</h4>
-              <p>Web</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web Project 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ajoutez d'autres éléments de portfolio pour les différents types de projets -->
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -805,7 +342,7 @@
           <div class="info-box">
             <i class="bx bx-map"></i>
             <h3>Géolocalisation</h3>
-            <p>à venir</p>
+            <p>{{ acceuil.data.ville }}</p>
           </div>
         </div>
 
@@ -814,15 +351,9 @@
             <i class="bx bx-share-alt"></i>
             <h3>Réseaux Sociaux</h3>
             <div class="social-links">
-              <a href="#" class="github"><i class="bi bi-github"></i></a>
-              <a href="#" class="behance"><i class="bi bi-behance"></i></a>
-              <a href="#" class="pinterest"><i class="bi bi-pinterest"></i></a>
-              <a href="#" class="youtube"><i class="bi bi-youtube"></i></a>
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              {% for item in reseaux.data %}
+                <a href="{{ item.lien }}" class="{{ item.icon }}"><i class="bi bi-{{ item.icon }}"></i></a>
+              {% endfor %}
             </div>
           </div>
         </div>
@@ -831,29 +362,29 @@
           <div class="info-box">
             <i class="bx bx-envelope"></i>
             <h3>M'adresser un mail</h3>
-            <p>ismail.mouyahada@developer.net</p>
+            <p>{{ acceuil.data.email }}</p>
           </div>
         </div>
         <div class="col-md-6 mt-4 d-flex align-items-stretch">
           <div class="info-box">
             <i class="bx bx-phone-call"></i>
             <h3>Me télephoner</h3>
-            <p>+33 7 84 07 50 61</p>
+            <p>{{ acceuil.data.mobile }}</p>
           </div>
         </div>
       </div>
 
-      <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4">
+      <form action="/" method="post" role="form" class="php-email-form mt-4">
         <div class="row">
           <div class="col-md-6 form-group">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Votre Nom" required />
+            <input type="text" name="nom" class="form-control" id="nom" placeholder="Votre Nom" required />
           </div>
           <div class="col-md-6 form-group mt-3 mt-md-0">
             <input type="email" class="form-control" name="email" id="email" placeholder="Votre Email" required />
           </div>
         </div>
         <div class="form-group mt-3">
-          <input type="text" class="form-control" name="subject" id="subject" placeholder="Sujet" required />
+          <input type="text" class="form-control" name="sujet" id="sujet" placeholder="Sujet" required />
         </div>
         <div class="form-group mt-3">
           <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
