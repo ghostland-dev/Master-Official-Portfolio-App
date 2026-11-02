@@ -65,4 +65,9 @@ The Master-Official-Portfolio-App is a sophisticated mobile and web application 
 **Conclusion:**
 The Master-Official-Portfolio-App is an essential tool for any professional looking to present their work in a compelling and professional manner. With its user-friendly interface, customizable options, and powerful features, this app makes it easy to build and maintain a standout portfolio that can impress potential clients, employers, and collaborators.
 
- 
+## Author
+
+**Ismail.M**, Software Engineer & DevOps
+
+- GitHub: [@ghostland-dev](https://github.com/ghostland-dev)
+- Website: [ismail-mouyahada.com](https://www.ismail-mouyahada.com)
